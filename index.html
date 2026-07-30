@@ -578,6 +578,95 @@
       color: var(--text);
     }
 
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .plan-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 30px 26px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.74);
+      border: 1px solid rgba(188,231,227,.88);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .plan-card.featured {
+      border-color: var(--aqua);
+      box-shadow: var(--shadow);
+      transform: translateY(-6px);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -13px;
+      left: 26px;
+      background: var(--aqua);
+      color: #fff;
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .plan-eyebrow {
+      color: var(--aqua-deep);
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .plan-tag {
+      margin-top: 12px;
+      font-size: 1.4rem;
+      font-weight: 950;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+    }
+
+    .plan-blurb {
+      margin-top: 10px;
+      color: var(--text);
+      font-size: .95rem;
+    }
+
+    .plan-features {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 22px 0 28px;
+      font-size: .93rem;
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .plan-features li { padding-left: 22px; position: relative; }
+
+    .plan-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--aqua-deep);
+      font-weight: 950;
+    }
+
+    .plan-btn { margin-top: auto; width: 100%; }
+
+    .plans-note {
+      margin-top: 26px;
+      font-size: .88rem;
+      color: var(--muted);
+      max-width: 640px;
+    }
+
     .area-panel {
       position: relative;
       overflow: hidden;
@@ -988,7 +1077,8 @@
         margin-left: auto;
       }
 
-      .services-grid {
+      .services-grid,
+      .plans-grid {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -1058,12 +1148,17 @@
       }
 
       .services-grid,
+      .plans-grid,
       .area-list {
         grid-template-columns: 1fr;
       }
 
       .service-card {
         min-height: auto;
+      }
+
+      .plan-card.featured {
+        transform: none;
       }
 
       .proof-item {
@@ -1126,6 +1221,7 @@
 
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
+        <li><a href="#plans">Plans</a></li>
         <li><a href="#areas">Areas</a></li>
         <li><a href="#why">Why KCM</a></li>
         <li><a href="#quote">Quote</a></li>
@@ -1233,6 +1329,59 @@
       </div>
     </section>
 
+    <section id="plans" aria-labelledby="plans-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Cleaning plans</span>
+            <h2 id="plans-heading">Pick how often, and KCM takes it from there.</h2>
+          </div>
+          <p>Every property is different, so pricing is confirmed after a quick look at your job — but choosing a round upfront speeds up your quote and locks in priority booking.</p>
+        </div>
+
+        <div class="plans-grid">
+          <article class="plan-card reveal">
+            <span class="plan-eyebrow">One-off clean</span>
+            <p class="plan-tag">Single visit</p>
+            <p class="plan-blurb">A one-time freshen up, no commitment — ideal before a sale, visit or just a general clean-up.</p>
+            <ul class="plan-features">
+              <li>No ongoing commitment</li>
+              <li>Windows, or add gutters & fascias</li>
+              <li>Quote confirmed before booking</li>
+            </ul>
+            <a href="#quote" class="btn btn-light plan-btn" data-plan="One-off clean">Get a quote</a>
+          </article>
+
+          <article class="plan-card featured reveal">
+            <span class="plan-badge">Most popular</span>
+            <span class="plan-eyebrow">Every 4 weeks</span>
+            <p class="plan-tag">Regular round</p>
+            <p class="plan-blurb">The most popular choice — windows always look their best, and you're on a set day in the round.</p>
+            <ul class="plan-features">
+              <li>Best value per visit</li>
+              <li>Priority booking on your round day</li>
+              <li>Easy to add gutters & fascias</li>
+            </ul>
+            <a href="#quote" class="btn btn-primary plan-btn" data-plan="Every 4 weeks">Get a quote</a>
+          </article>
+
+          <article class="plan-card reveal">
+            <span class="plan-eyebrow">Every 8 weeks</span>
+            <p class="plan-tag">Less frequent round</p>
+            <p class="plan-blurb">A lighter regular round for properties that don't need cleaning as often.</p>
+            <ul class="plan-features">
+              <li>Still on a set, repeat round</li>
+              <li>Lower visit frequency</li>
+              <li>Switch frequency any time</li>
+            </ul>
+            <a href="#quote" class="btn btn-light plan-btn" data-plan="Every 8 weeks">Get a quote</a>
+          </article>
+        </div>
+
+        <p class="plans-note">Not sure what you need? Send an enquiry and mention your property — KCM will suggest the best round for you.</p>
+      </div>
+    </section>
+
     <section id="areas" aria-labelledby="areas-heading">
       <div class="container area-panel reveal">
         <div class="area-grid">
@@ -1296,6 +1445,7 @@
           <span class="eyebrow">Request a quote</span>
           <h2 id="quote-heading">Need your windows cleaned?</h2>
           <p>Call, WhatsApp or send a quick enquiry with your location and what you need cleaned. KCM will get back to you as soon as possible.</p>
+          <p id="plan-indicator" style="display:none; margin-top:16px; color:#fff; background:var(--aqua-deep); padding:8px 14px; border-radius:999px; font-weight:850; font-size:.86rem; width:fit-content;"></p>
 
           <div class="quick-contact" aria-label="Quick contact options">
             <a class="contact-card" href="tel:+447533407765">
@@ -1346,15 +1496,27 @@
             </div>
           </div>
 
-          <div class="input-group">
-            <label for="service">Service needed</label>
-            <select id="service" name="service">
-              <option value="Window cleaning">Window cleaning</option>
-              <option value="Gutter cleaning">Gutter cleaning</option>
-              <option value="Fascias and soffits">Fascias and soffits</option>
-              <option value="Commercial or contract enquiry">Commercial or contract enquiry</option>
-              <option value="Other cleaning enquiry">Other cleaning enquiry</option>
-            </select>
+          <div class="form-row">
+            <div class="input-group">
+              <label for="service">Service needed</label>
+              <select id="service" name="service">
+                <option value="Window cleaning">Window cleaning</option>
+                <option value="Gutter cleaning">Gutter cleaning</option>
+                <option value="Fascias and soffits">Fascias and soffits</option>
+                <option value="Commercial or contract enquiry">Commercial or contract enquiry</option>
+                <option value="Other cleaning enquiry">Other cleaning enquiry</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="frequency">How often?</label>
+              <select id="frequency" name="frequency">
+                <option value="Not sure">Not sure — suggest one</option>
+                <option value="One-off clean">One-off clean</option>
+                <option value="Every 4 weeks">Every 4 weeks</option>
+                <option value="Every 8 weeks">Every 8 weeks</option>
+              </select>
+            </div>
           </div>
 
           <div class="input-group">
@@ -1406,6 +1568,19 @@
     } else {
       revealEls.forEach((el) => el.classList.add('is-visible'));
     }
+
+    document.querySelectorAll('.plan-btn[data-plan]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var plan = btn.getAttribute('data-plan');
+        var field = document.getElementById('frequency');
+        var indicator = document.getElementById('plan-indicator');
+        if (field) field.value = plan;
+        if (indicator) {
+          indicator.textContent = 'Selected: ' + plan;
+          indicator.style.display = 'inline-flex';
+        }
+      });
+    });
   </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0ff4464db5d93e2',t:'MTc4MjE3MzM5OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
