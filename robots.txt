@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kcmcleaning.co.uk/sitemap.xml
